@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/hong/Desktop/project/2015/chuansongmen/app/build/intermediates/exploded-aar/com.orhanobut/logger/1.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2c40111d8d404cf9a7c25789676a41661d2651b0">
+        <dex dex="/Users/hong/Desktop/project/2015/chuansongmen/app/build/intermediates/pre-dexed/debug/classes-40532e7d29ce951e27b0c5726be5e0dc18c3af20.jar" />
+    </item>
+    <item
+        jar="/Users/hong/Desktop/project/2015/chuansongmen/app/libs/joda-time-2.8.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d27c24204c5e507b16fec01006b3d0f1ec42aed4">
+        <dex dex="/Users/hong/Desktop/project/2015/chuansongmen/app/build/intermediates/pre-dexed/debug/joda-time-2.8.2-e48f91a0b06b45fdf41dec0c51a35d456be3c803.jar" />
+    </item>
+    <item
+        jar="/Users/hong/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="/Users/hong/Desktop/project/2015/chuansongmen/app/build/intermediates/pre-dexed/debug/glide-3.6.1-83e896e09ee0b1b9483a177ddf2fdf9606c1bbfc.jar" />
+    </item>
+
+</items>
