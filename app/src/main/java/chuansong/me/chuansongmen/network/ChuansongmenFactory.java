@@ -19,6 +19,7 @@ public class ChuansongmenFactory {
             if(sInstanceInstance==null){
                 ChuansongmenCilent chuansongmenCilent = new ChuansongmenCilent();
                 sInstanceInstance=chuansongmenCilent.getCilent();
+                sNewsSetileInStance= chuansongmenCilent.getNewsDetileClient();
             }
             return sInstanceInstance;
         }

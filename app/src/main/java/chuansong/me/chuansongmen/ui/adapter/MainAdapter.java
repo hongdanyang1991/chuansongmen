@@ -15,9 +15,10 @@ import java.util.List;
 import butterknife.Bind;
 import chuansong.me.chuansongmen.R;
 import chuansong.me.chuansongmen.model.News;
+import chuansong.me.chuansongmen.utils.DateFormatter;
 
 /**
- * Created by HongDanyang on 16/1/24.
+ * Created by SilenceDut on 2015/12/4.
  */
 public class MainAdapter extends LoadAdapter {
 
@@ -58,11 +59,16 @@ public class MainAdapter extends LoadAdapter {
         @Override
         protected void update(int position) {
             super.update(position);
-            Glide.with(mContext).load(newEntity.getCover())
+            Glide.with(mContext).load(newEntity.getImgUrlList().get(0))
                     .placeholder(R.mipmap.placeholder_small)
                     .into(newsImage);
             newsTitleTV.setText(newEntity.getTitle());
-            newsTimeTV.setText(newEntity.getDate());
+            if((Long.parseLong(newEntity.getPutdate()))<20151207){
+                showTime=newEntity.getPutdate().substring(4,6)+"月"+newEntity.getPutdate().substring(6,8)+"日";
+            }else{
+                showTime = DateFormatter.getRecentlyTimeFormatText(new DateTime(Long.parseLong(newEntity.getPutdate())));
+            }
+            newsTimeTV.setText(showTime);
         }
 
     }
@@ -82,8 +88,13 @@ public class MainAdapter extends LoadAdapter {
         protected void update(int position) {
             super.update(position);
             newsTitleTV.setText(newEntity.getTitle());
-            newsDescriptionTV.setText(newEntity.getDate());
-            newsTimeTV.setText(newEntity.getDate());
+            newsDescriptionTV.setText(newEntity.getDescription());
+            if((Long.parseLong(newEntity.getPutdate()))<20151207){
+                showTime=newEntity.getPutdate().substring(4,6)+"月"+newEntity.getPutdate().substring(6,8)+"日";
+            }else{
+                showTime = DateFormatter.getRecentlyTimeFormatText(new DateTime(Long.parseLong(newEntity.getPutdate())));
+            }
+            newsTimeTV.setText(showTime);
         }
 
     }
@@ -109,17 +120,22 @@ public class MainAdapter extends LoadAdapter {
         @Override
         protected void update(int position) {
             super.update(position);
-            Glide.with(mContext).load(newEntity.getCover())
+            Glide.with(mContext).load(newEntity.getImgUrlList().get(1))
                     .placeholder(R.mipmap.placeholder_small)
                     .into(newsImage1);
-            Glide.with(mContext).load(newEntity.getCover())
+            Glide.with(mContext).load(newEntity.getImgUrlList().get(2))
                     .placeholder(R.mipmap.placeholder_small)
                     .into(newsImage2);
-            Glide.with(mContext).load(newEntity.getCover())
+            Glide.with(mContext).load(newEntity.getImgUrlList().get(3))
                     .placeholder(R.mipmap.placeholder_small)
                     .into(newsImage3);
             newsTitleTV.setText(newEntity.getTitle());
-            newsTimeTV.setText(newEntity.getDate());
+            if ((Long.parseLong(newEntity.getPutdate())) < 20151207) {
+                showTime = newEntity.getPutdate().substring(4, 6) + "月" + newEntity.getPutdate().substring(6, 8) + "日";
+            } else {
+                showTime = DateFormatter.getRecentlyTimeFormatText(new DateTime(Long.parseLong(newEntity.getPutdate())));
+            }
+            newsTimeTV.setText(showTime);
         }
     }
 

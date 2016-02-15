@@ -2,7 +2,9 @@ package chuansong.me.chuansongmen.ui.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +19,7 @@ import chuansong.me.chuansongmen.ui.fragment.base.BaseFragment;
 /**
  * Created by HongDanyang on 16/1/23.
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity{
 
     private DrawerFragment mNavigationFragment;
 
@@ -29,6 +31,15 @@ public class MainActivity extends BaseActivity {
 
     private Map<Integer,String> mFragmentNameByDrawerId = new HashMap<>();
 
+    //UI Object
+
+    private TextView txt_channel;
+
+    private TextView txt_message;
+
+    private TextView txt_better;
+
+    private TextView txt_setting;
 
     @Override
     protected void initViews() {
@@ -38,9 +49,19 @@ public class MainActivity extends BaseActivity {
         mNavigationFragment.setUp((FrameLayout) findViewById(R.id.main_content),
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.main_drawer));
+        bindViews();
+        txt_channel.performClick();
         initDrawerMap();
         mCurrentFragment= getFragment(mFragmentNameByDrawerId.get(R.string.news));
         transactionSupportFragment(mCurrentFragment);
+    }
+
+    //UI组件初始化与事件绑定
+    private void bindViews() {
+        txt_channel = (TextView) findViewById(R.id.txt_channel);
+        txt_message = (TextView) findViewById(R.id.txt_message);
+        txt_better = (TextView) findViewById(R.id.txt_better);
+        txt_setting = (TextView) findViewById(R.id.txt_setting);
     }
 
     public void onEventMainThread(DrawerClickEvent drawerClickEvent) {

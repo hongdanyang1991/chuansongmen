@@ -25,7 +25,7 @@ public class Constant {
     }
 
     public enum NEWSTYPE {
-        NEWS("news"),BLOG("blog"),RECENT("recent"),SELECT("select"),NEWSMEDIA("newsmedia"),
+        NEWS("news"),BLOG("blog"),SELECT("select"),NEWSMEDIA("newsmedia"),
         FUN("fun"),LIFEJOURNEY("lifejourney"),UTILITY("utility"),HISBOOK("hisbook"),FINANCE("finance"),
         FOOD("food"),MOVIEMUSIC("moviemusic"),AUTO("auto");
         private String newsType;

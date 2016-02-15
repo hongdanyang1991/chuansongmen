@@ -30,6 +30,7 @@ import chuansong.me.chuansongmen.utils.NumericalUtil;
  */
 public abstract class LoadAdapter extends RecyclerView.Adapter<LoadAdapter.BaseViewHolder>{
 
+
     private static final int ANIMATED_ITEMS_DURATION=1000;
     private int lastAnimatedPosition=-1;
     protected Boolean mLoading=false;
@@ -70,13 +71,11 @@ public abstract class LoadAdapter extends RecyclerView.Adapter<LoadAdapter.BaseV
             itemType= VIEWTYPE.ERROR.getViewType();
         }else if ( position == getItemCount() - 1) {
             itemType= VIEWTYPE.LOADMORE.getViewType();
-        }
-//        else  if(mNewsList.get(position).getImgUrlList().size()==0){
-//            itemType= VIEWTYPE.NOPIC.getViewType();
-//        }else if(mNewsList.get(position).getImgUrlList().size()>=4){
-//            itemType= VIEWTYPE.MOREPIC.getViewType();
-//        }
-        else {
+        } else  if(mNewsList.get(position).getImgUrlList().size()==0){
+            itemType= VIEWTYPE.NOPIC.getViewType();
+        }else if(mNewsList.get(position).getImgUrlList().size()>=4){
+            itemType= VIEWTYPE.MOREPIC.getViewType();
+        }else {
             itemType= VIEWTYPE.NORMAL.getViewType();
         }
         return itemType;
@@ -162,11 +161,12 @@ public abstract class LoadAdapter extends RecyclerView.Adapter<LoadAdapter.BaseV
 
             Intent intent = new Intent(mContext, NewsDetileActivity.class);
             intent.putExtra(NewsDetileActivity.TITLE, newEntity.getTitle());
-            intent.putExtra(NewsDetileActivity.DETILE_DATE, newEntity.getDate());
-            intent.putExtra(NewsDetileActivity.DETILE_ID, newEntity.getId());
-            intent.putExtra(NewsDetileActivity.IMAGE_EXIST, true);
-            intent.putExtra(NewsDetileActivity.IMAGE_URL, newEntity.getCover());
-//
+            intent.putExtra(NewsDetileActivity.DETILE_DATE, new DateTime(Long.parseLong(newEntity.getPutdate())).toString("yyyyMMdd"));
+            intent.putExtra(NewsDetileActivity.DETILE_ID, newEntity.getArticleId());
+            intent.putExtra(NewsDetileActivity.IMAGE_EXIST, newEntity.getImgUrlList().size() > 0);
+            if (newEntity.getImgUrlList().size()>0) {
+                intent.putExtra(NewsDetileActivity.IMAGE_URL, newEntity.getImgUrlList().get(0));
+            }
             ActivityOptionsCompat options =
                     ActivityOptionsCompat.makeScaleUpAnimation(view, //The View that the new activity is animating from
                             (int) view.getWidth() / 2, (int) view.getHeight() / 2, //拉伸开始的坐标
@@ -197,6 +197,4 @@ public abstract class LoadAdapter extends RecyclerView.Adapter<LoadAdapter.BaseV
         }
 
     }
-
-
 }

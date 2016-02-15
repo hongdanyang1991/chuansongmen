@@ -3,6 +3,7 @@ package chuansong.me.chuansongmen.ui.fragment;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -84,7 +85,13 @@ public abstract class NewsFragment extends SwipeRefreshBaseFragment implements R
             }
         } else {
             News news = newsEvent.getNews();
-            mNewsId = news.getNextPage();
+
+
+            //这个newsEvent.getNes为什么就能获取News了？
+            Log.e("news.getNewslist().size()", news.getNewslist().size()+"");
+
+
+            mNewsId = news.getNextId();
             switch (newsEvent.getNewsWay()) {
                 case INIT:
                     mNewsListEntity.clear();

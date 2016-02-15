@@ -15,7 +15,8 @@ public class ChuansongmenCilent {
 
     ChuansongmenCilent( ) {
         Retrofit retrofit0 = new Retrofit.Builder()
-                .baseUrl("http://192.168.23.10:7171/")
+//                .baseUrl("https://chuansongme.com/")
+                .baseUrl("http://nbaplus.sinaapp.com/")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

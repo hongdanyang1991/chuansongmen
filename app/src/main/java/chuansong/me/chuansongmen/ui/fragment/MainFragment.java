@@ -53,15 +53,12 @@ public class MainFragment extends NewsFragment{
         }
     }
     private void initCaChe() {
-        Log.e("getNewsType", Constant.NEWSTYPE.RECENT.getNewsType());
-        AppService.getInstance().initNews(getTaskId(), Constant.NEWSTYPE.RECENT.getNewsType());
+        AppService.getInstance().initNews(getTaskId(), Constant.NEWSTYPE.NEWS.getNewsType());
     }
 
     @Override
     public void onRefresh() {
-        Log.e("getNewsType!!!", Constant.NEWSTYPE.RECENT.getNewsType());
-        Log.e("getTaskId!!!", getTaskId()+"");
-        AppService.getInstance().updateNews(getTaskId(), Constant.NEWSTYPE.RECENT.getNewsType());
+        AppService.getInstance().updateNews(getTaskId(), Constant.NEWSTYPE.NEWS.getNewsType());
     }
 
 
@@ -70,13 +67,13 @@ public class MainFragment extends NewsFragment{
         if (mLoadAdapter.canLoadMore()) {
             mLoadAdapter.setLoading(true);
             mLoadAdapter.notifyItemChanged(mLoadAdapter.getItemCount() - 1);
-            AppService.getInstance().loadMoreNews(getTaskId(),Constant.NEWSTYPE.RECENT.getNewsType(), mNewsId);
+            AppService.getInstance().loadMoreNews(getTaskId(),Constant.NEWSTYPE.NEWS.getNewsType(), mNewsId);
         }
     }
 
 
     public void onEventMainThread(NewsEvent newsEvent) {
-        if(newsEvent!=null&&Constant.NEWSTYPE.RECENT.getNewsType().equals(newsEvent.getNewsType())) {
+        if(newsEvent!=null&&Constant.NEWSTYPE.NEWS.getNewsType().equals(newsEvent.getNewsType())) {
 
             updateView(newsEvent);
         }

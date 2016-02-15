@@ -61,4 +61,9 @@
     <string name="data_cleared">已清除缓存数据</string>
     <string name="my_team">我的主队</string>
 
+    <string name="tab_menu_alert">首页</string>
+    <string name="tab_menu_profile">订阅</string>
+    <string name="tab_menu_pay">社区</string>
+    <string name="tab_menu_setting">我的</string>
+
 </resources>
